@@ -1,0 +1,65 @@
+﻿@model ePostOffice_5001.Models.Entity.TBL_ORDER
+@{
+    ViewBag.Title = "MakeOrder";
+}
+
+<h2>Do you wanna make some order?</h2>
+<br />
+<b>This is the page for you.</b>
+<br />
+<br />
+<br />
+
+<div class="row">
+    <div class="column">
+        <img src="~/Content/dollar.png" alt="Dollar" style="width:10%">
+        <p>For American Dollar ID is <b>1</b></p>
+    </div>
+    <div class="column">
+        <img src="~/Content/euro.png" alt="Euro" style="width:10%">
+        <p>For Euro ID is <b>2</b></p>
+    </div>
+    <div class="column">
+        <img src="~/Content/pound.png" alt="Pound" style="width:10%">
+        <p>For Pound ID is <b>3</b></p>
+    </div>
+    <div class="column">
+        <img src="~/Content/tlicon.jpg" alt="Pound" style="width:10%">
+        <p>For Turkish Lira ID is <b>4</b></p>
+    </div>
+    <div class="column">
+        <img src="~/Content/audicon.png" alt="Pound" style="width:10%">
+        <p>For Australian Dollar ID is <b>5</b></p>
+    </div>
+</div>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+    Click to Make Order
+</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">This is where you make your order.</h2>
+            </div>
+            <form method="post" action="/MakeOrder/MakeOrder">
+                <div class="modal-body">
+                    <label>Order Category</label>
+                    @Html.TextBoxFor(m => m.CATEGORY, new { @class = "form-control" })
+                    <br />
+                    <label>Customer ID</label>
+                    @Html.TextBoxFor(m => m.CUSTOMER, new { @class = "form-control" })
+                    <br />
+                    <label>Order Amount</label>
+                    @Html.TextBoxFor(m => m.AMOUNT, new { @class = "form-control" })
+                    <br />
+                    <button type="submit" class="btn btn-success">Submit Order</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel Order</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+

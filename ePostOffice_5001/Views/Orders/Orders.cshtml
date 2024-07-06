@@ -1,0 +1,50 @@
+﻿@using ePostOffice_5001.Models.Entity;
+@model List<TBL_ORDER>
+@{
+    ViewBag.Title = "Orders";
+}
+
+
+<h2>List of current orders are listed below:</h2>
+<br />
+<table id="tbl3" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Currency Category</th>
+            <th>Customer</th>
+            <th>Amount</th>
+            <th>DELETE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <th>@customer.ORDERID</th>
+                <td>@customer.TBLCATEGORY.CATEGORYNAME</td>
+                <td>@customer.CUSTOMER</td>
+                <td>@customer.AMOUNT</td>
+                <td><a href="Delete/@customer.ORDERID" class="btn btn-danger">DELETE</a></td>
+            </tr>
+        }
+
+    </tbody>
+
+
+</table>
+
+<a href="NewOrder" class="btn btn-primary">ADD NEW ORDER</a>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl3').DataTable();
+
+</script>
+
